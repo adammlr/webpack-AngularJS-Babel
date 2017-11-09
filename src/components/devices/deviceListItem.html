@@ -1,0 +1,102 @@
+<div class="panel panel-default">
+    <div class="panel-body" sf-disable-if="$ctrl.disabled">
+        <div class="row device-detail">
+            <div class="device-icon col-xs-3 col-sm-1 text-center"><span
+                class="iconmoon" ng-class="$ctrl.className"></span></div>
+            <div class="col-xs-7 col-sm-9">
+                <div class="row">
+                    <div class="col-xs-10" sf-slide-up="!$ctrl.edit" style="display:none;">
+                        <div class="row">
+                            <div class="col-xs-12 device-nickname">
+                                <span ng-bind="$ctrl.device.Nickname"></span>
+                            </div>
+                        </div>
+                        <div class="row device-info">
+                            <div class="col-xs-12">
+                                <span translate="account.device.type"></span>
+                                <span ng-bind="$ctrl.device.DeviceTypeName"></span>
+                            </div>
+                        </div>
+                        <div class="row device-info">
+                            <div class="col-xs-12">
+                                <span translate="account.device.added"></span>
+                                <span ng-bind="$ctrl.device.Start | date: 'MM/dd/yyyy'"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-10" sf-slide-up="$ctrl.edit" style="display:none;">
+                        <div class="row">
+                            <div class="col-xs-12 device-nickname">
+                                <div class="form-group" ng-class="{'has-error':!$ctrl.device.Nickname}">
+                                    <label for="device-nickname-{{$ctrl.device.Id}}"
+                                           class="text-capitalize">nickname</label>
+                                    <input id="device-nickname-{{$ctrl.device.Id}}"
+                                           class="device-nickname-input form-control" type="text" maxlength="100"
+                                           required
+                                           ng-model="$ctrl.device.Nickname" ng-if="$ctrl.edit"/>
+                                    <div class="has-error help-block" translate="account.device.nickNameRequired" ng-hide="$ctrl.device.Nickname"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row device-info">
+                            <div class="col-xs-12">
+                                <span translate="account.device.type"></span>
+                                <span ng-bind="$ctrl.device.DeviceTypeName"></span>
+                            </div>
+                        </div>
+                        <div class="row device-info">
+                            <div class="col-xs-12">
+                                <span translate="account.device.added"></span>
+                                <span ng-bind="$ctrl.device.Start | date: 'MM/dd/yyyy'"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-2 devices-list-template-buttons pull-right">
+                <a class="btn btn-link-info pull-right edit-device-button text-lowercase"
+                   ng-click="$ctrl.startEditMode()"
+                   ng-if="!$ctrl.edit" translate="common.actionButtons.edit"></a>
+            </div>
+        </div>
+        <div class="row device-actions" sf-slide-up="$ctrl.edit && !$ctrl.remove" style="display:none;">
+            <div class="col-xs-12 col-sm-6">
+                <a class="btn-link-info delete-button" ng-click="$ctrl.remove = true"
+                   translate="account.device.remove"></a>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+                <div class="row">
+                    <div class="col-xs-6 ">
+                        <a class="btn btn-info btn-block cancel-button" tabindex="0" ng-click="$ctrl.cancelEditMode()"
+                           translate="common.actionButtons.cancel">
+                        </a>
+                    </div>
+                    <div class="col-xs-6 ">
+                        <a class="btn btn-primary btn-block save-button" tabindex="0"
+                           ng-click="$ctrl.saveDevice()" translate="common.actionButtons.save"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row device-actions" sf-slide-up="$ctrl.remove" style="display:none;">
+            <div class="col-xs-12 col-sm-6">
+                <span translate="account.device.confirmRemove"></span>
+            </div>
+            <div class="col-xs-12 visible-xs">&nbsp;</div>
+            <div class="col-xs-12 col-sm-6">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <a class="btn btn-info btn-block delete-cancel-button" tabindex="0"
+                           ng-click="$ctrl.startEditMode()" translate="common.actionButtons.cancel">
+                        </a>
+                    </div>
+                    <div class="col-xs-6">
+                        <a class="btn btn-danger btn-block delete-remove-button text-capitalize" tabindex="0"
+                           ng-click="$ctrl.removeDevice()" translate="common.actionButtons.remove"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

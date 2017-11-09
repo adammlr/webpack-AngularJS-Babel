@@ -1,0 +1,77 @@
+{
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es6": true,
+        "jasmine": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:import/errors",
+        "plugin:import/warnings"
+    ],
+    "plugins": [
+        "import"
+    ],
+    "globals": {
+        "angular": true,
+        "inject": true
+    },
+    "parserOptions": {
+        "sourceType": "module"
+    },
+    "rules": {
+        "array-bracket-spacing": "error",
+        "arrow-body-style": [
+            "error",
+            "always"
+        ],
+        "arrow-spacing": "error",
+        "block-spacing": "error",
+        "brace-style": "error",
+        "comma-spacing": "error",
+        "comma-style": "error",
+        "curly": "error",
+        "default-case": "error",
+        "eqeqeq": "error",
+        "func-call-spacing": "error",
+        "indent": [
+            "error",
+            4,
+            {
+                "SwitchCase": 1
+            }
+        ],
+        "keyword-spacing": "error",
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "no-trailing-spaces": "error",
+        "object-curly-spacing": "error",
+        "object-property-newline": "error",
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "import/no-unresolved": [
+            2,
+            {
+                "commonjs": true,
+                "amd": true
+            }
+        ],
+        "import/named": 2,
+        "import/namespace": 2,
+        "import/default": 2,
+        "import/export": 2,
+        "import/no-named-as-default-member": 0,
+        "prefer-const": 2,
+        "no-var": 2,
+        "space-before-blocks": "error"
+    }
+}
