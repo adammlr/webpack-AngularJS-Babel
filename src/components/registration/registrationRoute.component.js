@@ -1,5 +1,5 @@
 import html from './registrationRoute.html';
-import css from './registrationRoute.less'; // eslint-disable-line
+import './registrationRoute.less';
 
 /* @ngInject */
 function registrationRouteController() {
